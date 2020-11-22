@@ -1,0 +1,26 @@
+{
+  "name": "ds-parser",
+  "version": "0.0.1",
+  "description": "Parse PS styled input to real data structure",
+  "main": "./src/index.js",
+  "repository": "https://Tekiter@github.com/algoboza/ds-parser.git",
+  "author": "Tekiter <tekiter8@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint --ignore-path .gitignore 'src/**/*.ts'",
+    "prepublishOnly": "tsc"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.0",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.1.2"
+  }
+}
