@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "lint": "eslint --ignore-path .gitignore 'src/**/*.ts'",
+    "lint": "eslint --ignore-path .gitignore src/**/*.ts",
     "clean": "git clean -Xf src check filter",
     "prepublishOnly": "tsc"
   },

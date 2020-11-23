@@ -74,5 +74,11 @@ module.exports = {
             },
         ],
         '@typescript-eslint/no-require-imports': 'error',
+        'prettier/prettier': [
+            'error',
+            {
+                endOfLine: 'auto',
+            },
+        ],
     },
 };
