@@ -16,10 +16,14 @@
     "build": "tsc",
     "test": "jest",
     "lint": "eslint --ignore-path .gitignore 'src/**/*.ts'",
+    "clean": "git clean -Xf src check filter",
     "prepublishOnly": "tsc"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.20"
+  },
   "devDependencies": {
+    "@types/jest": "^26.0.15",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "eslint": "^7.14.0",
