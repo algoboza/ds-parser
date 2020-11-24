@@ -79,4 +79,12 @@ export class Tokenizer {
 
         return buffer.join('');
     }
+
+    readTokenInt(radix: number = 10) {
+        return parseInt(this.readToken(), radix);
+    }
+
+    readTokenFloat() {
+        return parseFloat(this.readToken());
+    }
 }

@@ -58,3 +58,27 @@ test('readToken과 readLine이 읽을게 없으면 에러를 띄워야함', () =
     expect(tokenizer.readLine()).toBe('a');
     expect(() => tokenizer.readToken()).toThrow(Error);
 });
+
+test('readTokenInt가 정수를 제대로 읽어야함', () => {
+    let input: string;
+
+    input = ' 1 -2\n3';
+
+    let tokenizer = new Tokenizer(input);
+
+    expect(tokenizer.readTokenInt()).toEqual(1);
+    expect(tokenizer.readTokenInt()).toEqual(-2);
+    expect(tokenizer.readTokenInt()).toEqual(3);
+});
+
+test('readTokenFloat가 실수를 제대로 읽어야함', () => {
+    let input: string;
+
+    input = ' 1.0 -2.7\n3.14';
+
+    let tokenizer = new Tokenizer(input);
+
+    expect(tokenizer.readTokenFloat()).toBeCloseTo(1.0);
+    expect(tokenizer.readTokenFloat()).toBeCloseTo(-2.7);
+    expect(tokenizer.readTokenFloat()).toBeCloseTo(3.14);
+});
