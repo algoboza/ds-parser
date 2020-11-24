@@ -12,6 +12,9 @@ npm-debug.log*
 /src/**/*.js
 /src/**/*.d.ts
 
+# Build
+dist/
+
 # Misc
 .DS_Store
 /coverage
