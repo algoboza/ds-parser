@@ -11,9 +11,9 @@ export interface DSDetector {
 }
 
 export interface DSConverter<T> {
-    parser: DSParser<T>;
-    stringifier: DSStringifier<T>;
-    detector: DSDetector;
+    parse: DSParser<T>;
+    stringify: DSStringifier<T>;
+    detect: DSDetector;
 }
 
 export interface DSConverterDict<T> {
