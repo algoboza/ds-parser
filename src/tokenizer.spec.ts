@@ -40,7 +40,7 @@ test('readToken과 readLine을 섞어도 잘 작동해야함', () => {
     expect(tokenizer.readToken()).toBe('g');
 });
 
-test('readToken과 readLine이 읽을게 없으면 에러를 띄워야함', () => {
+test('readToken과 readLine이 읽을게 없으면 빈 문자열을 가져와야함', () => {
     let input: string;
 
     input = 'a b ';
@@ -49,14 +49,15 @@ test('readToken과 readLine이 읽을게 없으면 에러를 띄워야함', () =
 
     expect(tokenizer.readToken()).toBe('a');
     expect(tokenizer.readToken()).toBe('b');
-    expect(() => tokenizer.readToken()).toThrow(Error);
+    expect(tokenizer.readToken()).toBe('');
 
     input = 'a\n';
 
     tokenizer = new Tokenizer(input);
 
     expect(tokenizer.readLine()).toBe('a');
-    expect(() => tokenizer.readToken()).toThrow(Error);
+    expect(tokenizer.readToken()).toBe('');
+    expect(tokenizer.readToken()).toBe('');
 });
 
 test('readTokenInt가 정수를 제대로 읽어야함', () => {

@@ -54,9 +54,6 @@ export class Tokenizer {
 
             this.reader.read();
         }
-        if (!this.reader.readable && buffer.length === 0) {
-            throw new Error('더 읽을 Token이 없습니다.');
-        }
 
         return buffer.join('');
     }
