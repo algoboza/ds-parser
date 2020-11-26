@@ -5,8 +5,4 @@ export class List<T> extends Array<T> {
             arr.forEach((item) => this.push(item));
         }
     }
-
-    toString() {
-        return super.toString();
-    }
 }

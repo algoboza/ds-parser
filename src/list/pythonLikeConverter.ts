@@ -21,6 +21,10 @@ const pythonLikeConverter: DSConverter<List<any>> = {
             return false;
         }
 
+        if (rawData.length === 2) {
+            return true;
+        }
+
         let buf = '';
         for (let i = 1; i < rawData.length - 1; i++) {
             if (rawData[i] === ',') {
@@ -28,13 +32,12 @@ const pythonLikeConverter: DSConverter<List<any>> = {
                     return false;
                 }
                 buf = '';
-            } else if ([' ', '\t'].includes(rawData[i])) {
-                if (buf.length > 0) {
-                    return false;
-                }
             } else {
                 buf += rawData[i];
             }
+        }
+        if (buf.length === 0) {
+            return false;
         }
 
         return true;
@@ -46,16 +49,14 @@ const pythonLikeConverter: DSConverter<List<any>> = {
         let buf = '';
         for (let i = 1; i < rawData.length - 1; i++) {
             if (rawData[i] === ',') {
-                result.push(buf);
+                result.push(buf.trim());
                 buf = '';
-            } else if ([' ', '\t'].includes(rawData[i])) {
-                continue;
             } else {
                 buf += rawData[i];
             }
         }
         if (buf.length > 0) {
-            result.push(buf);
+            result.push(buf.trim());
         }
         return result;
     },
@@ -63,7 +64,9 @@ const pythonLikeConverter: DSConverter<List<any>> = {
         const result = new StringBuilder();
 
         result.write('[');
-        result.write(list[0]);
+        if (list.length > 0) {
+            result.write(list[0]);
+        }
 
         for (let i = 1; i < list.length; i++) {
             result.write(', ');
